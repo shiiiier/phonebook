@@ -10,14 +10,17 @@ function App() {
   useEffect(() => {
     // Using fetch to fetch the api from flask server it will be redirected to proxy
     fetch('./api/data').then(
-      response => response.json()
+      response => {response.json()
+        console.log(response.body)}
       ).then(
         data => {
         // Setting a data from api
+          
           setData(data)
           console.log(data)
         }
       )
+      
   }, [])
 
   return (
